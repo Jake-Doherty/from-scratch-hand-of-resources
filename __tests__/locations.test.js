@@ -7,6 +7,16 @@ describe('routes for plants', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  it('GET /locations/1 should return a detail of location with id 1', async () => {
+    const resp = await request(app).get('/locations/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '1',
+      street_address: '097 Prairieview Circle',
+      latitude: -8.5803424,
+      longitude: 116.3654707,
+    });
+  });
   it('GET /locations should return a list of locations', async () => {
     const resp = await request(app).get('/locations');
     expect(resp.status).toBe(200);

@@ -7,7 +7,7 @@ describe('routes for plants', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it.skip('PUT /plants/1 should update plant with id 1', async () => {
+  it('PUT /plants/1 should update plant with id 1', async () => {
     const resp = await request(app).put('/plants/1').send({
       common_name: 'Buxbaumia Moss',
       plant_family: 'Buxbaumiaceae',
@@ -18,7 +18,7 @@ describe('routes for plants', () => {
     expect(resp.body.plant_family).toEqual('Buxbaumiaceae');
     expect(resp.body.plant_scientific_name).toEqual('Buxbaumia aphylla Hedw');
   });
-  it.skip('POST /should create a new plant in the db', async () => {
+  it('POST /should create a new plant in the db', async () => {
     const newPlant = {
       common_name: 'Foxtail Prairie Clover',
       plant_family: 'Fabaceae',
@@ -35,7 +35,7 @@ describe('routes for plants', () => {
       }
     `);
   });
-  it.skip('GET /plant/:id should get a detail of a plant by id', async () => {
+  it('GET /plant/:id should get a detail of a plant by id', async () => {
     const resp = await request(app).get('/plants/1');
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual({
@@ -46,7 +46,7 @@ describe('routes for plants', () => {
         'Monardella lanceolata A. Gray var. microcephala A. Gray',
     });
   });
-  it.skip('GET /plants should get a list of all plants', async () => {
+  it('GET /plants should get a list of all plants', async () => {
     const resp = await request(app).get('/plants');
     expect(resp.status).toBe(200);
     expect(resp.body).toMatchInlineSnapshot(`
@@ -114,11 +114,11 @@ describe('routes for plants', () => {
       ]
     `);
   });
-  it.skip('GET /plants/826 should return a 404', async () => {
+  it('GET /plants/826 should return a 404', async () => {
     const resp = await request(app).get('/plants/826');
     expect(resp.status).toBe(404);
   });
-  it.skip('DELETE /plants/1 should delete plant with id 1', async () => {
+  it('DELETE /plants/1 should delete plant with id 1', async () => {
     const resp = await request(app).delete('/plants/1');
     expect(resp.status).toBe(204);
 

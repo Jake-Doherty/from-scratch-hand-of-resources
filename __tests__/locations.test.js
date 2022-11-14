@@ -116,9 +116,12 @@ describe('routes for locations', () => {
       longitude: 113.479098,
     });
   });
-  it('DELETE /location/1 should delete location with id of 1', async () => {
+  it('DELETE /locations/1 should delete location with id of 1', async () => {
     const resp = await request(app).delete('/locations/1');
     expect(resp.status).toBe(204);
+
+    const getResp = await request(app).get('/locations/1');
+    expect(getResp.status).toBe(404);
   });
   afterAll(() => {
     pool.end();

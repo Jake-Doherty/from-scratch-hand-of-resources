@@ -7,6 +7,17 @@ describe('routes for plants', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  it('PUT /plants/1 should update plant with id 1', async () => {
+    const resp = await request(app).put('/plants/1').send({
+      common_name: 'Buxbaumia Moss',
+      plant_family: 'Buxbaumiaceae',
+      plant_scientific_name: 'Buxbaumia aphylla Hedw',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.common_name).toEqual('Buxbaumia Moss');
+    expect(resp.body.plant_family).toEqual('Buxbaumiaceae');
+    expect(resp.body.plant_scientific_name).toEqual('Buxbaumia aphylla Hedw');
+  });
   it('POST /should create a new plant in the db', async () => {
     const newPlant = {
       common_name: 'Foxtail Prairie Clover',

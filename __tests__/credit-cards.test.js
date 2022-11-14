@@ -85,6 +85,23 @@ describe('routes for plants', () => {
       ]
     `);
   });
+  it('POST /should add a row to credit-cards data', async () => {
+    const newCard = {
+      cc_number: '30047394030592',
+      cc_type: 'diners-club-carte-blanche',
+      department: 'Industrial',
+    };
+    const resp = await request(app).post('/credit-cards').send(newCard);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "cc_number": "30047394030592",
+        "cc_type": "diners-club-carte-blanche",
+        "department": "Industrial",
+        "id": "11",
+      }
+    `);
+  });
   afterAll(() => {
     pool.end();
   });

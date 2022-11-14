@@ -102,6 +102,17 @@ describe('routes for plants', () => {
       }
     `);
   });
+  it('PUT /credit-cards/1 should update credit-card with id of 1', async () => {
+    const resp = await request(app).put('/credit-cards/1').send({
+      cc_number: '201742534100411',
+      cc_type: 'diners-club-enroute',
+      department: 'Games',
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body.cc_number).toEqual('201742534100411');
+    expect(resp.body.cc_type).toEqual('diners-club-enroute');
+    expect(resp.body.department).toEqual('Games');
+  });
   afterAll(() => {
     pool.end();
   });

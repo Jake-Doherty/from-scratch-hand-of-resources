@@ -114,6 +114,17 @@ describe('routes for plants', () => {
       ]
     `);
   });
+  it('GET /plants/826 should return a 404', async () => {
+    const resp = await request(app).get('/plants/826');
+    expect(resp.status).toBe(404);
+  });
+  it('DELETE /plants/1 should delete plant with id 1', async () => {
+    const resp = await request(app).delete('/plants/1');
+    expect(resp.status).toBe(204);
+
+    const getResp = await request(app).get('/plants/1');
+    expect(getResp.status).toBe(404);
+  });
   afterAll(() => {
     pool.end();
   });

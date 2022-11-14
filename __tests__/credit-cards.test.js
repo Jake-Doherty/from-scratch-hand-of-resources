@@ -7,7 +7,17 @@ describe('routes for plants', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('/credit-cards should return a list of credit cards', async () => {
+  it('GET /credit-cards/1 should return a detail of credit-card with id 1', async () => {
+    const resp = await request(app).get('/credit-cards/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '1',
+      cc_number: '5641823826724519',
+      cc_type: 'switch',
+      department: 'Industrial',
+    });
+  });
+  it('GET /credit-cards should return a list of credit cards', async () => {
     const resp = await request(app).get('/credit-cards');
     expect(resp.status).toBe(200);
     expect(resp.body).toMatchInlineSnapshot(`

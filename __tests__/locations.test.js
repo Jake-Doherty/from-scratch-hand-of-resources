@@ -123,6 +123,10 @@ describe('routes for locations', () => {
     const getResp = await request(app).get('/locations/1');
     expect(getResp.status).toBe(404);
   });
+  it('GET /locations/12352364 should return a 404', async () => {
+    const resp = await request(app).get('/locations/12352364');
+    expect(resp.status).toBe(404);
+  });
   afterAll(() => {
     pool.end();
   });

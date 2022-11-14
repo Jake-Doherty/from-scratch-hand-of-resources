@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "cc_number": "5641823826724519",
+    "cc_type": "switch",
+    "department": "Industrial"
+  },
+  {
+    "id": 2,
+    "cc_number": "3546317574494517",
+    "cc_type": "jcb",
+    "department": "Clothing"
+  },
+  {
+    "id": 3,
+    "cc_number": "3540914015922456",
+    "cc_type": "jcb",
+    "department": "Books"
+  },
+  {
+    "id": 4,
+    "cc_number": "6759633421929730529",
+    "cc_type": "maestro",
+    "department": "Sports"
+  },
+  {
+    "id": 5,
+    "cc_number": "3531227906245528",
+    "cc_type": "jcb",
+    "department": "Books"
+  },
+  {
+    "id": 6,
+    "cc_number": "633364232328160780",
+    "cc_type": "switch",
+    "department": "Electronics"
+  },
+  {
+    "id": 7,
+    "cc_number": "5602214166196830",
+    "cc_type": "bankcard",
+    "department": "Clothing"
+  },
+  {
+    "id": 8,
+    "cc_number": "3560901401242628",
+    "cc_type": "jcb",
+    "department": "Movies"
+  },
+  {
+    "id": 9,
+    "cc_number": "560224387873276780",
+    "cc_type": "china-unionpay",
+    "department": "Beauty"
+  },
+  {
+    "id": 10,
+    "cc_number": "337941592439540",
+    "cc_type": "americanexpress",
+    "department": "Toys"
+  }
+]

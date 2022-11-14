@@ -6,6 +6,9 @@ drop table
 drop table
   if exists plants;
 
+drop table
+  if exists credit_cards;
+
 create table
   users (
     id bigint generated always as identity primary key,
@@ -47,4 +50,27 @@ values
   ('Pohlia Moss', 'Bryaceae', 'Pohlia melanodon (Brid.) Shaw'),
   ('Syngonanthus', 'Eriocaulaceae', 'Syngonanthus Ruhl.'),
   ('Pinkflower Hedgehog Cactus', 'Cactaceae', 'Echinocereus fendleri (Engelm.) Sencke ex J.N. Haage ssp. fendleri'),
-  ('Moco De Pavo', 'Poaceae', 'Eriochrysis cayennensis P. Beauv.')
+  ('Moco De Pavo', 'Poaceae', 'Eriochrysis cayennensis P. Beauv.');
+
+
+create table
+  credit_cards (
+    id bigint generated always as identity primary key,
+    cc_number bigint not null, 
+    cc_type varchar not null, 
+    department varchar not null
+  );
+
+insert into
+  credit_cards (cc_number, cc_type, department)
+values
+  ('5641823826724519', 'switch', 'Industrial'),
+  ('3546317574494517', 'jcb', 'Clothing'),
+  ('3540914015922456', 'jcb', 'Books'),
+  ('6759633421929730529', 'maestro', 'Sports'),
+  ('3531227906245528', 'jcb', 'Books'),
+  ('633364232328160780', 'switch', 'Electronics'),
+  ('5602214166196830', 'bankcard', 'Clothing'),
+  ('3560901401242628', 'jcb', 'Movies'),
+  ('560224387873276780', 'china-unionpay', 'Beauty'),
+  ('337941592439540', 'americanexpress', 'Toys');

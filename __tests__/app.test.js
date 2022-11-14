@@ -7,6 +7,13 @@ describe('routes for users', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  it('PUT /users/1 should update user with id 1', async () => {
+    const resp = await request(app)
+      .put('/users/1')
+      .send({ last_name: 'Biglastname' });
+    expect(resp.status).toBe(200);
+    expect(resp.body.last_name).toEqual('Biglastname');
+  });
   it('POST /should create a new user in the database', async () => {
     const newUser = {
       first_name: 'Jason',

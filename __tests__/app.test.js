@@ -7,6 +7,15 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  it('/users/:id should return a user detail by id', async () => {
+    const resp = await request(app).get('/users/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '1',
+      first_name: 'Chevy',
+      last_name: 'Silversmidt',
+    });
+  });
   it('/users should get a list of users', async () => {
     const resp = await request(app).get('/users');
     expect(resp.status).toBe(200);

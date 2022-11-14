@@ -7,7 +7,7 @@ describe('routes for plants', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('GET /credit-cards/1 should return a detail of credit-card with id 1', async () => {
+  it.skip('GET /credit-cards/1 should return a detail of credit-card with id 1', async () => {
     const resp = await request(app).get('/credit-cards/1');
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual({
@@ -17,7 +17,7 @@ describe('routes for plants', () => {
       department: 'Industrial',
     });
   });
-  it('GET /credit-cards should return a list of credit cards', async () => {
+  it.skip('GET /credit-cards should return a list of credit cards', async () => {
     const resp = await request(app).get('/credit-cards');
     expect(resp.status).toBe(200);
     expect(resp.body).toMatchInlineSnapshot(`
@@ -85,7 +85,7 @@ describe('routes for plants', () => {
       ]
     `);
   });
-  it('POST /should add a row to credit-cards data', async () => {
+  it.skip('POST /should add a row to credit-cards data', async () => {
     const newCard = {
       cc_number: '30047394030592',
       cc_type: 'diners-club-carte-blanche',
@@ -102,7 +102,7 @@ describe('routes for plants', () => {
       }
     `);
   });
-  it('PUT /credit-cards/1 should update credit-card with id of 1', async () => {
+  it.skip('PUT /credit-cards/1 should update credit-card with id of 1', async () => {
     const resp = await request(app).put('/credit-cards/1').send({
       cc_number: '201742534100411',
       cc_type: 'diners-club-enroute',
@@ -113,14 +113,14 @@ describe('routes for plants', () => {
     expect(resp.body.cc_type).toEqual('diners-club-enroute');
     expect(resp.body.department).toEqual('Games');
   });
-  it('DELETE /credit-cards/1 should delete credit-credit', async () => {
+  it.skip('DELETE /credit-cards/1 should delete credit-credit', async () => {
     const resp = await request(app).delete('/credit-cards/1');
     expect(resp.status).toBe(204);
 
     const getResp = await request(app).get('/credit-cards/1');
     expect(getResp.status).toBe(404);
   });
-  it('GET /credit-cards/1234 should return a 404', async () => {
+  it.skip('GET /credit-cards/1234 should return a 404', async () => {
     const resp = await request(app).get('/credit-cards/1234');
     expect(resp.status).toBe(404);
   });

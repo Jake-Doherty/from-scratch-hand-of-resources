@@ -9,6 +9,9 @@ drop table
 drop table
   if exists credit_cards;
 
+drop table
+  if exists locations;
+
 create table
   users (
     id bigint generated always as identity primary key,
@@ -74,3 +77,25 @@ values
   ('3560901401242628', 'jcb', 'Movies'),
   ('560224387873276780', 'china-unionpay', 'Beauty'),
   ('337941592439540', 'americanexpress', 'Toys');
+
+create table
+  locations (
+    id bigint generated always as identity primary key,
+    street_address varchar,
+    latitude double precision,
+    longitude double precision
+  );
+
+insert into
+  locations (street_address, latitude, longitude)
+values
+  ('097 Prairieview Circle', -8.5803424, 116.3654707),
+  ('5 Cordelia Plaza', -7.0827518, 108.5166348),
+  ('311 Hooker Pass', -20.5805385, 164.2740515),
+  ('439 Dovetail Circle', 8.662577, -75.128872),
+  ('8 Coolidge Terrace', 53.0155306, 21.3375451),
+  ('5810 Emmet Hill', -7.5450262, 111.6556388),
+  ('30055 Debra Circle', 23.759956, 116.157387),
+  ('70 Bartelt Alley', 39.0000158, 140.0433007),
+  ('8091 Messerschmidt Pass', 23.105394, 113.874335),
+  ('4 Vermont Drive', 52.664639, 35.8136035)

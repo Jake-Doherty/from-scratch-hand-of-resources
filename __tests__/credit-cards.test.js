@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('routes for plants', () => {
+describe('routes for credit cards', () => {
   beforeEach(() => {
     return setup(pool);
   });

@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('routes for plants', () => {
+describe('routes for locations', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -83,6 +83,23 @@ describe('routes for plants', () => {
           "street_address": "4 Vermont Drive",
         },
       ]
+    `);
+  });
+  it('POST /should add a location to the db', async () => {
+    const newLocation = {
+      street_address: '301 Southridge Avenue',
+      latitude: -7.1651833,
+      longitude: 115.7930198,
+    };
+    const resp = await request(app).post('/locations').send(newLocation);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "id": "11",
+        "latitude": -7.1651833,
+        "longitude": 115.7930198,
+        "street_address": "301 Southridge Avenue",
+      }
     `);
   });
   afterAll(() => {

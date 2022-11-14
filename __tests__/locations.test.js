@@ -1,0 +1,81 @@
+const pool = require('../lib/utils/pool');
+const setup = require('../data/setup');
+const request = require('supertest');
+const app = require('../lib/app');
+
+describe('routes for plants', () => {
+  beforeEach(() => {
+    return setup(pool);
+  });
+  it('GET /locations should return a list of locations', async () => {
+    const resp = await request(app).get('/locations');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "id": "1",
+          "latitude": -8.5803424,
+          "longitude": 116.3654707,
+          "street_address": "097 Prairieview Circle",
+        },
+        Object {
+          "id": "2",
+          "latitude": -7.0827518,
+          "longitude": 108.5166348,
+          "street_address": "5 Cordelia Plaza",
+        },
+        Object {
+          "id": "3",
+          "latitude": -20.5805385,
+          "longitude": 164.2740515,
+          "street_address": "311 Hooker Pass",
+        },
+        Object {
+          "id": "4",
+          "latitude": 8.662577,
+          "longitude": -75.128872,
+          "street_address": "439 Dovetail Circle",
+        },
+        Object {
+          "id": "5",
+          "latitude": 53.0155306,
+          "longitude": 21.3375451,
+          "street_address": "8 Coolidge Terrace",
+        },
+        Object {
+          "id": "6",
+          "latitude": -7.5450262,
+          "longitude": 111.6556388,
+          "street_address": "5810 Emmet Hill",
+        },
+        Object {
+          "id": "7",
+          "latitude": 23.759956,
+          "longitude": 116.157387,
+          "street_address": "30055 Debra Circle",
+        },
+        Object {
+          "id": "8",
+          "latitude": 39.0000158,
+          "longitude": 140.0433007,
+          "street_address": "70 Bartelt Alley",
+        },
+        Object {
+          "id": "9",
+          "latitude": 23.105394,
+          "longitude": 113.874335,
+          "street_address": "8091 Messerschmidt Pass",
+        },
+        Object {
+          "id": "10",
+          "latitude": 52.664639,
+          "longitude": 35.8136035,
+          "street_address": "4 Vermont Drive",
+        },
+      ]
+    `);
+  });
+  afterAll(() => {
+    pool.end();
+  });
+});

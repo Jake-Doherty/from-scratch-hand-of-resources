@@ -101,6 +101,13 @@ describe('routes for users', () => {
     const resp = await request(app).get('/users/999');
     expect(resp.status).toBe(404);
   });
+  it('DELETE /users/1 should delete user with id 1', async () => {
+    const resp = await request(app).delete('/users/1');
+    expect(resp.status).toBe(204);
+
+    const getResp = await request(app).get('/users/1');
+    expect(getResp.status).toBe(404);
+  });
   afterAll(() => {
     pool.end();
   });

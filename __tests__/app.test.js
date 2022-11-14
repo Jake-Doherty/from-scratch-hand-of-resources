@@ -7,6 +7,7 @@ describe('routes for users', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  // it();
   it('PUT /users/1 should update user with id 1', async () => {
     const resp = await request(app)
       .put('/users/1')
@@ -95,6 +96,10 @@ describe('routes for users', () => {
         },
       ]
     `);
+  });
+  it('GET /users/999 should return a 404', async () => {
+    const resp = await request(app).get('/users/999');
+    expect(resp.status).toBe(404);
   });
   afterAll(() => {
     pool.end();

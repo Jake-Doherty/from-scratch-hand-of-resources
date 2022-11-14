@@ -7,7 +7,6 @@ describe('routes for users', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  // it();
   it.skip('PUT /users/1 should update user with id 1', async () => {
     const resp = await request(app)
       .put('/users/1')

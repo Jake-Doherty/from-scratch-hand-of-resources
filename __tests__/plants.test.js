@@ -7,6 +7,23 @@ describe('routes for plants', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  it('POST /should create a new plant in the db', async () => {
+    const newPlant = {
+      common_name: 'Foxtail Prairie Clover',
+      plant_family: 'Fabaceae',
+      plant_scientific_name: 'Dalea leporina (Aiton) Bullock',
+    };
+    const resp = await request(app).post('/plants').send(newPlant);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "common_name": "Foxtail Prairie Clover",
+        "id": "11",
+        "plant_family": "Fabaceae",
+        "plant_scientific_name": "Dalea leporina (Aiton) Bullock",
+      }
+    `);
+  });
   it('GET /plant/:id should get a detail of a plant by id', async () => {
     const resp = await request(app).get('/plants/1');
     expect(resp.status).toBe(200);

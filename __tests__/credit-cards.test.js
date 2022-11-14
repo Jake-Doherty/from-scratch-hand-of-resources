@@ -113,6 +113,17 @@ describe('routes for plants', () => {
     expect(resp.body.cc_type).toEqual('diners-club-enroute');
     expect(resp.body.department).toEqual('Games');
   });
+  it('DELETE /credit-cards/1 should delete credit-credit', async () => {
+    const resp = await request(app).delete('/credit-cards/1');
+    expect(resp.status).toBe(204);
+
+    const getResp = await request(app).get('/credit-cards/1');
+    expect(getResp.status).toBe(404);
+  });
+  it('GET /credit-cards/1234 should return a 404', async () => {
+    const resp = await request(app).get('/credit-cards/1234');
+    expect(resp.status).toBe(404);
+  });
   afterAll(() => {
     pool.end();
   });

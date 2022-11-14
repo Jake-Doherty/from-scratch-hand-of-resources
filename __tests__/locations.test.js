@@ -102,6 +102,20 @@ describe('routes for locations', () => {
       }
     `);
   });
+  it('PUT /locations/1 should update location with id of 1', async () => {
+    const resp = await request(app).put('/locations/1').send({
+      street_address: '4 Crownhardt Court',
+      latitude: -7.7920677,
+      longitude: 113.479098,
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '1',
+      street_address: '4 Crownhardt Court',
+      latitude: -7.7920677,
+      longitude: 113.479098,
+    });
+  });
   afterAll(() => {
     pool.end();
   });

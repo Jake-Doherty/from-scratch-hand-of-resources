@@ -8,14 +8,14 @@ describe('routes for users', () => {
     return setup(pool);
   });
   // it();
-  it('PUT /users/1 should update user with id 1', async () => {
+  it.skip('PUT /users/1 should update user with id 1', async () => {
     const resp = await request(app)
       .put('/users/1')
       .send({ last_name: 'Biglastname' });
     expect(resp.status).toBe(200);
     expect(resp.body.last_name).toEqual('Biglastname');
   });
-  it('POST /should create a new user in the database', async () => {
+  it.skip('POST /should create a new user in the database', async () => {
     const newUser = {
       first_name: 'Jason',
       last_name: 'Jasonson',
@@ -30,7 +30,7 @@ describe('routes for users', () => {
       }
     `);
   });
-  it('GET /users/:id should return a user detail by id', async () => {
+  it.skip('GET /users/:id should return a user detail by id', async () => {
     const resp = await request(app).get('/users/1');
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual({
@@ -39,7 +39,7 @@ describe('routes for users', () => {
       last_name: 'Silversmidt',
     });
   });
-  it('GET /users should get a list of users', async () => {
+  it.skip('GET /users should get a list of users', async () => {
     const resp = await request(app).get('/users');
     expect(resp.status).toBe(200);
     expect(resp.body).toMatchInlineSnapshot(`
@@ -97,11 +97,11 @@ describe('routes for users', () => {
       ]
     `);
   });
-  it('GET /users/999 should return a 404', async () => {
+  it.skip('GET /users/999 should return a 404', async () => {
     const resp = await request(app).get('/users/999');
     expect(resp.status).toBe(404);
   });
-  it('DELETE /users/1 should delete user with id 1', async () => {
+  it.skip('DELETE /users/1 should delete user with id 1', async () => {
     const resp = await request(app).delete('/users/1');
     expect(resp.status).toBe(204);
 

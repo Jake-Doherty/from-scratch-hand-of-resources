@@ -7,6 +7,17 @@ describe('routes for plants', () => {
   beforeEach(() => {
     return setup(pool);
   });
+  it('GET /plant/:id should get a detail of a plant by id', async () => {
+    const resp = await request(app).get('/plants/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '1',
+      common_name: 'Mustang Monardella',
+      plant_family: 'Lamiaceae',
+      plant_scientific_name:
+        'Monardella lanceolata A. Gray var. microcephala A. Gray',
+    });
+  });
   it('GET /plants should get a list of all plants', async () => {
     const resp = await request(app).get('/plants');
     expect(resp.status).toBe(200);

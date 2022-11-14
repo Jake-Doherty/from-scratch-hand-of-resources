@@ -3,11 +3,26 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('backend-express-template routes', () => {
+describe('routes for users', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('/users/:id should return a user detail by id', async () => {
+  it('POST /should create a new user in the database', async () => {
+    const newUser = {
+      first_name: 'Jason',
+      last_name: 'Jasonson',
+    };
+    const resp = await request(app).post('/users').send(newUser);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "first_name": "Jason",
+        "id": "11",
+        "last_name": "Jasonson",
+      }
+    `);
+  });
+  it('GET /users/:id should return a user detail by id', async () => {
     const resp = await request(app).get('/users/1');
     expect(resp.status).toBe(200);
     expect(resp.body).toEqual({
@@ -16,7 +31,7 @@ describe('backend-express-template routes', () => {
       last_name: 'Silversmidt',
     });
   });
-  it('/users should get a list of users', async () => {
+  it('GET /users should get a list of users', async () => {
     const resp = await request(app).get('/users');
     expect(resp.status).toBe(200);
     expect(resp.body).toMatchInlineSnapshot(`

@@ -12,6 +12,9 @@ drop table
 drop table
   if exists locations;
 
+drop table
+  if exists cars;
+
 create table
   users (
     id bigint generated always as identity primary key,
@@ -98,4 +101,26 @@ values
   ('30055 Debra Circle', 23.759956, 116.157387),
   ('70 Bartelt Alley', 39.0000158, 140.0433007),
   ('8091 Messerschmidt Pass', 23.105394, 113.874335),
-  ('4 Vermont Drive', 52.664639, 35.8136035)
+  ('4 Vermont Drive', 52.664639, 35.8136035);
+
+create table
+  cars (
+    id bigint generated always as identity primary key,
+    vin varchar not null, 
+    make varchar not null, 
+    model varchar not null, 
+    year smallint not null);
+
+insert into
+  cars (vin, make, model, year)
+values
+  ('5FNYF3H34FB584723', 'Chevrolet', 'Suburban 1500', 2001),
+  ('1FTWW3A55AE856951', 'Mercedes-Benz', '500SEL', 1992),
+  ('WBAYE8C56ED859682', 'Ford', 'Transit Connect', 2012),
+  ('WBAUP9C58BV789946', 'Volkswagen', 'Golf III', 1994),
+  ('WP0AA2A83EK341325', 'Hyundai', 'Accent', 2010),
+  ('1FMJK1J59AE335687', 'Ford', 'EXP', 1987),
+  ('1FTEX1EW7AF684786', 'Audi', '4000s Quattro', 1986),
+  ('5NPEB4ACXCH450889', 'Acura', 'NSX', 1993),
+  ('4T1BK1EB3EU598356', 'Jaguar', 'XF', 2011),
+  ('1C3CCBHG2CN883340', 'GMC', 'Suburban 1500', 1992)

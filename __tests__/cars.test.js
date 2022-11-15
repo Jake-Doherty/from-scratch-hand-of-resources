@@ -96,6 +96,42 @@ describe('routes for cars', () => {
       ]
     `);
   });
+  it('POST /cars should add a car to teh db', async () => {
+    const newCar = {
+      vin: 'WA1YD64B74N810377',
+      make: 'Toyota',
+      model: 'Celica',
+      year: 2000,
+    };
+    const resp = await request(app).post('/cars').send(newCar);
+    expect(resp.status).toBe(200);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "id": "11",
+        "make": "Toyota",
+        "model": "Celica",
+        "vin": "WA1YD64B74N810377",
+        "year": 2000,
+      }
+    `);
+  });
+  it('PUT /cars/1 should update car with id of 1', async () => {
+    const resp = await request(app).put('/cars/1').send({
+      id: '1',
+      vin: '1FTEW1E84AK550569',
+      make: 'Chevrolet',
+      model: 'Corvette',
+      year: 1965,
+    });
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '1',
+      vin: '1FTEW1E84AK550569',
+      make: 'Chevrolet',
+      model: 'Corvette',
+      year: 1965,
+    });
+  });
   afterAll(() => {
     pool.end();
   });

@@ -132,6 +132,17 @@ describe('routes for cars', () => {
       year: 1965,
     });
   });
+  it('DELETE /cars/1 should delete car with id of 1', async () => {
+    const resp = await request(app).delete('/cars/1');
+    expect(resp.status).toBe(204);
+
+    const getResp = await request(app).get('/cars/1');
+    expect(getResp.status).toBe(404);
+  });
+  it('GET /cars/3451341234 should return a 404', async () => {
+    const resp = await request(app).get('/cars/3451341234');
+    expect(resp.status).toBe(404);
+  });
   afterAll(() => {
     pool.end();
   });

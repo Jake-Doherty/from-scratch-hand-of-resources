@@ -3,9 +3,20 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('routes for locations', () => {
+describe('routes for cars', () => {
   beforeEach(() => {
     return setup(pool);
+  });
+  it('GET /cars/1 should return a detail of a car with id 1', async () => {
+    const resp = await request(app).get('/cars/1');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '1',
+      vin: '5FNYF3H34FB584723',
+      make: 'Chevrolet',
+      model: 'Suburban 1500',
+      year: 2001,
+    });
   });
   it('GET /cars should return a list of cars', async () => {
     const resp = await request(app).get('/cars');

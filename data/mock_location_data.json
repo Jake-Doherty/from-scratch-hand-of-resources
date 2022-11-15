@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "street_address": "097 Prairieview Circle",
+    "latitude": -8.5803424,
+    "longitude": 116.3654707
+  },
+  {
+    "id": 2,
+    "street_address": "5 Cordelia Plaza",
+    "latitude": -7.0827518,
+    "longitude": 108.5166348
+  },
+  {
+    "id": 3,
+    "street_address": "311 Hooker Pass",
+    "latitude": -20.5805385,
+    "longitude": 164.2740515
+  },
+  {
+    "id": 4,
+    "street_address": "439 Dovetail Circle",
+    "latitude": 8.662577,
+    "longitude": -75.128872
+  },
+  {
+    "id": 5,
+    "street_address": "8 Coolidge Terrace",
+    "latitude": 53.0155306,
+    "longitude": 21.3375451
+  },
+  {
+    "id": 6,
+    "street_address": "5810 Emmet Hill",
+    "latitude": -7.5450262,
+    "longitude": 111.6556388
+  },
+  {
+    "id": 7,
+    "street_address": "30055 Debra Circle",
+    "latitude": 23.759956,
+    "longitude": 116.157387
+  },
+  {
+    "id": 8,
+    "street_address": "70 Bartelt Alley",
+    "latitude": 39.0000158,
+    "longitude": 140.0433007
+  },
+  {
+    "id": 9,
+    "street_address": "8091 Messerschmidt Pass",
+    "latitude": 23.105394,
+    "longitude": 113.874335
+  },
+  {
+    "id": 10,
+    "street_address": "4 Vermont Drive",
+    "latitude": 52.664639,
+    "longitude": 35.8136035
+  }
+]
